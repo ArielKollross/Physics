@@ -28,6 +28,7 @@ p(x) = (ri(x) - rii(x)) / (ri(x) + rii(x))
 
 set ylabel "ress"
 set xlabel "Angulo de incidencia"
-set yrange [-1:1]
+set yrange [-1:2.5]
+set autoscale x
 #ploting graph
-plot p(x) with line
+plot p(x), ri(x) with line, rii(x) w line
