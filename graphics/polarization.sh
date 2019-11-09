@@ -14,23 +14,6 @@ ni = 1.0 # ar-vidro
 nt = 3.0/2.0 # ar-vidro
 #nt =  1.0 # vidro-ar
 #Define constant a 
-# a = ni/nt
-# a2 = nt/ni 
-#Define sqrt
-# sq(x)  = sqrt( 1 - (a**2)  * sin(x)*sin(x) )
-# sq2(x) = sqrt( 1 - (a2**2) * sin(x)*sin(x) )
-# #Define b
-# b(x)  = sq(x) /cos(x)
-# b2(x) = sq2(x)/cos(x)
-# #R perpendicular
-# Ri(x)  = (1-a*b(x))  / (1+a*b(x)) 
-# Ri2(x) = (1-a2*b2(x))/ (1+a2*b2(x))
-# #R parallel
-# Rp(x)  = (b(x)-a)  /(b(x)+a) 
-# Rp2(x) = (b2(x)-a2)/(b2(x)+a2)
-# #Function
-# p(x) = ( abs(Ri(x))  - abs(Rp(x)) ) / ( abs(Ri(x)) + abs(Rp(x))  )
-# f(x) = ( abs(Ri2(x)) - abs(Rp2(x))) / ( abs(Ri2(x)) + abs(Rp2(x)))
 
 #Define constant
 k = ni/nt
@@ -58,9 +41,10 @@ Fii(x) = (- (nt*cos(x) - ni*rz(x)) / (ni*rz(x) + nt*cos(x)))**2
 P(x) = (Ri(x)-Rii(x))/(Ri(x)+Rii(x))
 F(x) = -(Fi(x)-Fii(x))/(Fi(x)+Fii(x))
 
-set xlabel "Angulo de incidência"
+set xlabel "P({/Symbol q})"
+set xlabel "Angulo de incidência [rad]"
 set yrange [0:1.2]
 set xrange [0:1.8]
 
-plot P(x) w line title 'P({/Symbol q}_i) ar-vidro', \
-F(x) w line title 'P({/Symbol q}_i) vidro-ar'
+plot P(x) w line lt rgb "black" title 'P({/Symbol q}_i) ar-vidro', \
+F(x) w line lt rgb "red" title 'P({/Symbol q}_i) vidro-ar'
